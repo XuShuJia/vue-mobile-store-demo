@@ -1,0 +1,33 @@
+@keyframes item-active {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.tabbar-item {
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  color: var(--mainColor);
+  transition: color 0.3s ease;
+  &[data-active="true"] {
+    color: var(--focusColor);
+    animation: item-active 0.3s cubic-bezier(0, 1.53, 1, 1.36);
+  }
+}
+.item-icon {
+  font-size: 20px;
+  margin-bottom: 3px;
+}
+.item-title {
+  font-size: 10px;
+}
