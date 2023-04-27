@@ -1,3 +1,5 @@
+import type { TPageName } from "@/pages/PageLoader/types";
+
 export const TabBarProps = {};
 
 export interface ITabBarState {
@@ -6,7 +8,7 @@ export interface ITabBarState {
 }
 
 export interface ITabBarItem {
-  id: string;
+  id: TPageName;
   path: string;
   title: string;
   icon: string;

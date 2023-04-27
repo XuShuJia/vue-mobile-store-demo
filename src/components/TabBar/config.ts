@@ -1,4 +1,4 @@
-import { type TTabBarList } from "./types";
+import type { TTabBarList } from "./types";
 
 export const TabBarItems: TTabBarList = [
   {

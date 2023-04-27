@@ -1,39 +1,40 @@
-import { createRouter,createWebHashHistory,type RouteRecordRaw } from "vue-router";
+import {
+  createRouter,
+  createWebHashHistory,
+  type RouteRecordRaw
+} from "vue-router";
 
-const Home = () => import("@/pages/Home");
-const User = () => import("@/pages/User");
 const Login = () => import("@/pages/Login");
-const ShoppingCart = () => import("@/pages/ShoppingCart");
-const CommodityCategory = () => import("@/pages/CommodityCategory")
+const PageLoader = () => import("@/pages/PageLoader");
 
-const routes:RouteRecordRaw[] = [
+const routes: RouteRecordRaw[] = [
   {
-    path:"/",
-    component:Login,
+    path: "/",
+    component: Login
   },
   {
-    path:"/home",
-    component:Home,
+    path: "/home",
+    component: PageLoader
   },
   {
-    path:"/login",
-    component:Login,
+    path: "/login",
+    component: PageLoader
   },
   {
-    path:"/user",
-    component:User,
+    path: "/user",
+    component: PageLoader
   },
   {
-    path:"/shopping-cart",
-    component:ShoppingCart,
+    path: "/shopping-cart",
+    component: PageLoader
   },
   {
-    path:"/commodity-category",
-    component:CommodityCategory,
-  },
-]
+    path: "/commodity-category",
+    component: PageLoader
+  }
+];
 
 export default createRouter({
   routes,
-  history:createWebHashHistory()
-})
+  history: createWebHashHistory()
+});
