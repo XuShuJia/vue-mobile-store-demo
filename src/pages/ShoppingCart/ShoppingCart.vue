@@ -1,5 +1,8 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import styles from "./style.module.less";
+import PageContainer from "@/components/PageContainer";
+</script>
 
 <template>
-  ShoppingCart
+  <PageContainer title="购物车"> ShoppingCart </PageContainer>
 </template>

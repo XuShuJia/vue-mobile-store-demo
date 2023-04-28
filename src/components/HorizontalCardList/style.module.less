@@ -1,0 +1,38 @@
+.horizontal-card-list {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.card-row {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: 70px;
+  margin-bottom: 5px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card-item {
+  margin-right: 5px;
+  background: #ffffff;
+  border-radius: 10px;
+  height: 100%;
+  &[data-size="default"] {
+    min-width: 150px;
+  }
+  &[data-size="wide"] {
+    min-width: 300px;
+  }
+  &[data-size="small"] {
+    min-width: 100px;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}

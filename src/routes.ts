@@ -10,8 +10,8 @@ const PageLoader = () => import("@/pages/PageLoader");
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    // component: Login,
-    redirect: "/home"
+    component: Login
+    // redirect: "/home"
   },
   {
     path: "/home",

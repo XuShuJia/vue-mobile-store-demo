@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 import styles from "./style.module.less";
+import PageContainer from "@/components/PageContainer";
 </script>
 
 <template>
-  商品类别
+  <PageContainer title="分类"> </PageContainer>
 </template>

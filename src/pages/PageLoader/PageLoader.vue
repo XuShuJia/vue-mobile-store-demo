@@ -1,17 +1,21 @@
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
+import { ref, reactive } from "vue";
 import TabBar from "@/components/TabBar";
-import { reactive } from "vue";
 import type { TPageName, IPageLoaderState } from "./types";
 import usePageMap from "./hooks/usePageMap";
 import { showLoadingToast } from "vant";
+import type { ITabBarExpose } from "@/components/TabBar/types";
+import { provide } from "vue";
+import type { Ref } from "vue";
 
-const { PageMap } = usePageMap();
 const router = useRouter();
 const state = reactive<IPageLoaderState>({
   pages: [],
   show: "home"
 });
+const tabBarRef = ref<ITabBarExpose | null>(null);
+const { PageMap } = usePageMap();
 const handleSwitchPage = async (pageName: TPageName) => {
   if (PageMap[pageName].component === null) {
     if (!state.pages.find((item) => item.name === pageName)) {
@@ -40,6 +44,7 @@ const handleSwitchPage = async (pageName: TPageName) => {
   }
   state.show = pageName;
 };
+
 router.beforeEach((to) => {
   const pageName = to.path.split("/")[1] as TPageName;
   handleSwitchPage(pageName);
@@ -50,15 +55,16 @@ router.isReady().then(() => {
   )[1] as TPageName;
   handleSwitchPage(pageName);
 });
+
+provide<Ref<ITabBarExpose | null>>("tabBarRef", tabBarRef);
 </script>
 
 <template>
-  <div
+  <component
     v-for="page in state.pages"
     :key="page.id"
     v-show="state.show === page.id"
-  >
-    <component :is="PageMap[page.name].component" />
-  </div>
-  <TabBar />
+    :is="PageMap[page.name].component"
+  />
+  <TabBar ref="tabBarRef" />
 </template>
