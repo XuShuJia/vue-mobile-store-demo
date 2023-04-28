@@ -10,15 +10,17 @@ const PageLoader = () => import("@/pages/PageLoader");
 const routes: RouteRecordRaw[] = [
   {
     path: "/",
-    component: Login
+    // component: Login,
+    redirect: "/home"
   },
   {
     path: "/home",
     component: PageLoader
   },
   {
+    name: "login",
     path: "/login",
-    component: PageLoader
+    component: Login
   },
   {
     path: "/user",
@@ -34,7 +36,17 @@ const routes: RouteRecordRaw[] = [
   }
 ];
 
-export default createRouter({
+const router = createRouter({
   routes,
   history: createWebHashHistory()
 });
+
+router.beforeEach((to, from) => {
+  console.log({
+    to: to.path,
+    from: from.path
+  });
+  // return {name:"login"}
+});
+
+export default router;

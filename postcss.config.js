@@ -2,12 +2,11 @@
 module.exports = {
   plugins: {
     "postcss-pxtorem": {
-      // rootValue: 37.5,
       propList: ["*"],
       rootValue: 14,
-      unitPrecision: 5
+      unitPrecision: 5,
       // propList: ["font", "font-size", "line-height", "letter-spacing"]
-      // selectorBlackList: [],
+      selectorBlackList: ["html"]
       // replace: true,
       // mediaQuery: false,
       // minPixelValue: 0,
